@@ -9,11 +9,12 @@
 	</head>
 	<body ng-controller="MainController">
 		<div class="container">
-			<h1>To-Do List</h1>
+			<h2>To-Do List Count: {{getToDoCount()}}</h2>
 
 			<div class="row">
 				<div ng-repeat="item in vm.list track by item._id" style="padding:10px">
 					<button class="btn btn-danger" ng-click="vm.removeItem(item)">x</button>
+					<!-- Angular JS way of showing view model property -->
 					{{item.details}}
 				</div>
 			</div>			
@@ -24,7 +25,7 @@
 						<label for="newItemDetails">New Item Details:</label>
 						<input type="text" class="form-control" placeholder="Details for new to-do item" ng-model="vm.newItemDetails">
 					</div>
-					<button type-"submit" class="btn btn-primary" ng-click="vm.addItem()" ng-disabled="!vm.newItemDetails">Add</button>
+					<button type-"submit" class="btn btn-primary" ng-click="vm.addItem()" ng-disabled="!vm.newItemDetails"><i class="icon-plus"></i>Add</button>
 				</form>
 			</div>
 		<div>

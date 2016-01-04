@@ -9,6 +9,11 @@ demoApp.controller('MainController', ['$scope', 'guidService', function($scope, 
 		{ _id: guidService.createGuid(), details: 'Build an angular JS application' }
 	];
 	
+	vm.getToDoCount = function()
+	{
+		return vm.list.length;
+	}
+	
 	vm.addItem = function()
 	{
 		// TODO: add to the serverm then...
