@@ -5,18 +5,28 @@ demoApp.controller('MainController', ['$scope', 'guidService', function($scope, 
 	var vm = {};
 	
 	vm.list = [
-		{ _id: guidService.createGuid(), details: 'Learn angular JS' },
-		{ _id: guidService.createGuid(), details: 'Build an angular JS application' }
+		{ _id: guidService.createGuid(), details: 'Learn angular JS', done: false },
+		{ _id: guidService.createGuid(), details: 'Build an angular JS application', done: false }
 	];
 	
-	vm.getToDoCount = function()
-	{
-		return vm.list.length;
-	}
-	
+	vm.getAllCount = function()
+    {
+        return vm.list.length;
+    }
+
+	vm.getCompletedCount = function()
+    {
+        return vm.list.filter(function(item) { return item.done }).length;
+    }
+
+	vm.getUncompletedCount = function()
+    {
+        return vm.list.filter(function(item) { return !item.done }).length;
+    }
+
 	vm.addItem = function()
 	{
-		// TODO: add to the serverm then...
+		// TODO: add to the server then...
 		vm.list.push(
 		{
 			_id: guidService.createGuid(),

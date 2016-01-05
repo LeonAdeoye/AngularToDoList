@@ -4,18 +4,22 @@
 		<script src="vendor/jquery/jquery-2.1.3.min.js"></script>
 		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="./vendor/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="default.css">
 		<script src="vendor/angular/angular.min.js"></script>	
 		<script src="viewmodel.js"></script>
 	</head>
 	<body ng-controller="MainController">
 		<div class="container">
-			<h2>To-Do List Count: {{getToDoCount()}}</h2>
+			<h2>Total Count: {{vm.getAllCount()}}</h2>
+			<h2>Completed Count: {{vm.getCompletedCount()}}</h2>
+			<h2>Uncompleted Count: {{vm.getUncompletedCount()}}</h2>
 
 			<div class="row">
 				<div ng-repeat="item in vm.list track by item._id" style="padding:10px">
 					<button class="btn btn-danger" ng-click="vm.removeItem(item)">x</button>
+					<input type="checkbox" ng-model="item.done">
 					<!-- Angular JS way of showing view model property -->
-					{{item.details}}
+					<span class="done-{{item.done}}">{{item.details}}</span>
 				</div>
 			</div>			
 			
@@ -25,7 +29,7 @@
 						<label for="newItemDetails">New Item Details:</label>
 						<input type="text" class="form-control" placeholder="Details for new to-do item" ng-model="vm.newItemDetails">
 					</div>
-					<button type-"submit" class="btn btn-primary" ng-click="vm.addItem()" ng-disabled="!vm.newItemDetails"><i class="icon-plus"></i>Add</button>
+					<button type="submit" class="btn btn-primary" ng-click="vm.addItem()" ng-disabled="!vm.newItemDetails"><i class="icon-plus"></i>Add</button>
 				</form>
 			</div>
 		<div>
