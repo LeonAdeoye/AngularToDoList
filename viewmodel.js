@@ -5,8 +5,10 @@ demoApp.controller('MainController', ['$scope', 'guidService', function($scope, 
 	var vm = {};
 	
 	vm.list = [
-		{ _id: guidService.createGuid(), details: 'Learn angular JS', done: false },
-		{ _id: guidService.createGuid(), details: 'Build an angular JS application', done: false }
+		{ _id: guidService.createGuid(), details: 'Learn Angular JS', done: false },
+		{ _id: guidService.createGuid(), details: 'Build an Angular JS TO-DO List application', done: false },
+		{ _id: guidService.createGuid(), details: 'Learn more Angular JS', done: false },
+		{ _id: guidService.createGuid(), details: 'Become an expert at Angular JS', done: false }
 	];
 	
 	vm.getAllCount = function()
